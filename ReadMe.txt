@@ -57,3 +57,41 @@ Restarting the command in the Chat view got things back on track quickly.
 Testing with older models, such as GPT-4 and GPT-5 mini, often generated unexpected results. 
 If possible, we suggest using newer language models that are optimized for complex reasoning 
 when running GitHub Spec Kit commands.
+
+
+************************************************
+Constituion.md file and it's considerations
+************************************************
+
+You should review the constitution to ensure it captures requirements accurately. 
+
+This step is important when you’re working in a production environment where the constitution represents your business requirements and technical governance. 
+
+For a training exercise, this review is mainly to help you become familiar with the constitution content.
+
+In the constitution file, each principle should be clearly stated and actionable. For example:
+
+Vague: “Apply security best practices.” is too general.
+Clear: “All API endpoints MUST validate inputs before processing (URL format validation, length limits, null checks).” is specific and actionable.
+
+If critical requirements are missing or unclear, you can edit the constitution.md file directly to add or modify principles.
+
+In a production scenario, it’s important to review the constitution against the following criteria:
+
+> Completeness: All major areas are covered.
+> Clarity: Each principle is specific and unambiguous.
+> Consistency: Principles don’t contradict each other.
+> Relevance: All principles relate to the RSSFeedReader project.
+
+************************************************
+Spec.md file and it's considerations
+************************************************
+
+The specification (spec.md) defines what you’re building from the user’s perspective. It describes the features, user stories, acceptance criteria, and business requirements without prescribing how to implement them. 
+
+A well-written spec serves as the foundation for creating the implementation plan and tasks.
+
+
+Notice that GitHub Copilot retains the context of previous interactions in the current chat session. If you generated the constitution.md file in the current session, GitHub Copilot provides a Build Specification button near the bottom of the Chat view that could be used to start generating the specification. 
+
+In our test case, you want to provide the requirements document explicitly, so you don’t use the Build Specification button.
