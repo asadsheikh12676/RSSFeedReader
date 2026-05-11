@@ -95,3 +95,37 @@ A well-written spec serves as the foundation for creating the implementation pla
 Notice that GitHub Copilot retains the context of previous interactions in the current chat session. If you generated the constitution.md file in the current session, GitHub Copilot provides a Build Specification button near the bottom of the Chat view that could be used to start generating the specification. 
 
 In our test case, you want to provide the requirements document explicitly, so you don’t use the Build Specification button.
+
+
+************************************************
+Plan.md file and it's considerations
+************************************************
+
+The technical plan bridges the gap between the “what” (specification) and the “how” (implementation). 
+
+It defines the architecture, technology choices, data models, API designs, and implementation approach while adhering to the constraints defined in the constitution
+
+> The plan-template.md file defines the structure and sections of a technical plan document.
+
+> The speckit.plan.agent.md file provides detailed instructions for the /speckit.plan command. It guides GitHub Copilot on how to create a technical plan based on the specification and constitution.
+
+
+Once the plan workflow is complete, the following files are normally added to the root of the specs folder:
+
+> plan.md		(outlines the technical implementation plan for the application)
+
+> research.md		(captures research findings and technology decisions for the application)
+
+> quickstart.md		(provides setup instructions and a high-level overview of how to get started with the 				implementation. In case, the tasks need to be done MANUALLY; this file become super 				important for the architect and developers)
+
+> data-model.md		(defines the data entities, properties, and relationships needed for the application)
+
+> Contracts Folder:	(There could be one or more files listed under a contracts folder. 
+			Like API Contracts, and Front End application design summary etc)
+
+IMPORTANT: 
+> For a production scenario, you need to ensure that the plan provides a comprehensive description of the technical context and a clearly defined implementation strategy for the new app/features. 
+
+> The research, quickstart, and data model files should complement the plan by providing additional context and details.
+
+
