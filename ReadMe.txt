@@ -129,3 +129,53 @@ IMPORTANT:
 > The research, quickstart, and data model files should complement the plan by providing additional context and details.
 
 
+***************************************
+Task.md file and it's considerations
+***************************************
+
+The tasks.md file breaks down the technical plan into specific, actionable implementation steps. 
+
+IMPORTANT:
+> Each task should be small enough to complete in a reasonable timeframe (typically a few hours to a day when implemented without AI assistance) 
+
+> Each task should have a clear acceptance criteria.
+
+> The file tasks-template.md file organizes tasks into logical phases, while the speckit.tasks.agent.md file describes the steps that the /speckit.tasks workflow should follow:
+
+	What inputs to read (spec.md, plan.md, etc.)
+	What to produce (tasks.md)
+	How to sequence the tasks (by phase, user story, etc.)
+	How to define each task (specific, actionable, testable)
+	What checks/gates to apply (coverage, ordering, scope)
+
+AFTER THE speckit/tasks command has been completed successfully, VERIFY THE FOLLOWING
+
+1) Verify that tasks are ordered logically by phase and user story. For example:
+
+> Setup and Foundation tasks come first.
+
+> Backend API tasks build on the foundation.
+
+> Frontend tasks reference backend endpoints.
+
+> Testing tasks come after implementation.
+
+> Deployment tasks come last.
+
+IMPORTANT:
+
+PROD SCENARIO: ou should also take the time to verify that every requirement (from spec.md) and every key design commitment (from plan.md) maps to at least one concrete task (usually several). For example:
+
+> Design commitments from the plan.md file should have corresponding implementation tasks.
+
+> User story acceptance criteria should have corresponding implementation and verification tasks.
+
+> Functional requirements should have corresponding implementation tasks.
+
+> Security requirements should have corresponding implementation tasks.
+
+> Performance requirements should have testing tasks.
+
+
+
+
