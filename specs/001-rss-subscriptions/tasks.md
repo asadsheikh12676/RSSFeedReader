@@ -24,11 +24,11 @@ description: "Task list for RSS Feed Subscription Management (MVP) implementatio
 
 **Purpose**: Create project structure and initialize .NET projects
 
-- [ ] T001 Create solution and project directories per implementation plan in backend/ and frontend/
-- [ ] T002 Create ASP.NET Core 8.0 Web API project in backend/RSSFeedReader.Api/RSSFeedReader.Api.csproj
-- [ ] T003 Create Blazor WebAssembly project in frontend/RSSFeedReader.UI/RSSFeedReader.UI.csproj
-- [ ] T004 Add both projects to solution file RSSFeedReader.sln
-- [ ] T005 Remove template demo pages from frontend/RSSFeedReader.UI/Pages/ (Home.razor, Counter.razor, Weather.razor)
+- [x] T001 Create solution and project directories per implementation plan in backend/ and frontend/
+- [x] T002 Create ASP.NET Core 8.0 Web API project in backend/RSSFeedReader.Api/RSSFeedReader.Api.csproj
+- [x] T003 Create Blazor WebAssembly project in frontend/RSSFeedReader.UI/RSSFeedReader.UI.csproj
+- [x] T004 Add both projects to solution file RSSFeedReader.sln
+- [x] T005 Remove template demo pages from frontend/RSSFeedReader.UI/Pages/ (Home.razor, Counter.razor, Weather.razor)
 
 ---
 
@@ -40,20 +40,20 @@ description: "Task list for RSS Feed Subscription Management (MVP) implementatio
 
 ### Backend Infrastructure
 
-- [ ] T006 [P] Create Subscription model in backend/RSSFeedReader.Api/Models/Subscription.cs with Id, Url, AddedAt properties
-- [ ] T007 [P] Create SubscriptionService in backend/RSSFeedReader.Api/Services/SubscriptionService.cs with AddSubscription() and GetSubscriptions() methods
-- [ ] T008 Register SubscriptionService as singleton in backend/RSSFeedReader.Api/Program.cs
-- [ ] T009 Configure CORS policy in backend/RSSFeedReader.Api/Program.cs to allow frontend origin (localhost:5213)
-- [ ] T010 Update launchSettings.json in backend/RSSFeedReader.Api/Properties/ to use port 5151
+- [x] T006 [P] Create Subscription model in backend/RSSFeedReader.Api/Models/Subscription.cs with Id, Url, AddedAt properties
+- [x] T007 [P] Create SubscriptionService in backend/RSSFeedReader.Api/Services/SubscriptionService.cs with AddSubscription() and GetSubscriptions() methods
+- [x] T008 Register SubscriptionService as singleton in backend/RSSFeedReader.Api/Program.cs
+- [x] T009 Configure CORS policy in backend/RSSFeedReader.Api/Program.cs to allow frontend origin (localhost:5213)
+- [x] T010 Update launchSettings.json in backend/RSSFeedReader.Api/Properties/ to use port 5151
 
 ### Frontend Infrastructure
 
-- [ ] T011 [P] Create SubscriptionApiClient service in frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs with base URL pointing to http://localhost:5151/api
-- [ ] T012 [P] Create Subscription model in frontend/RSSFeedReader.UI/Models/Subscription.cs matching API contract
-- [ ] T013 Register SubscriptionApiClient in frontend/RSSFeedReader.UI/Program.cs
-- [ ] T014 Update launchSettings.json in frontend/RSSFeedReader.UI/Properties/ to use port 5213
-- [ ] T015 Create basic app.css in frontend/RSSFeedReader.UI/wwwroot/css/ with functional styling for forms and lists
-- [ ] T016 Update appsettings.json in frontend/RSSFeedReader.UI/wwwroot/ with ApiBaseUrl configuration
+- [x] T011 [P] Create SubscriptionApiClient service in frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs with base URL pointing to http://localhost:5151/api
+- [x] T012 [P] Create Subscription model in frontend/RSSFeedReader.UI/Models/Subscription.cs matching API contract
+- [x] T013 Register SubscriptionApiClient in frontend/RSSFeedReader.UI/Program.cs
+- [x] T014 Update launchSettings.json in frontend/RSSFeedReader.UI/Properties/ to use port 5213
+- [x] T015 Create basic app.css in frontend/RSSFeedReader.UI/wwwroot/css/ with functional styling for forms and lists
+- [x] T016 Update appsettings.json in frontend/RSSFeedReader.UI/wwwroot/ with ApiBaseUrl configuration
 
 **Checkpoint**: Foundation ready - both user stories can now be implemented in parallel
 
@@ -67,16 +67,16 @@ description: "Task list for RSS Feed Subscription Management (MVP) implementatio
 
 ### Implementation for User Story 1
 
-- [ ] T017 [US1] Create SubscriptionsController in backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs with POST endpoint
-- [ ] T018 [US1] Implement POST /api/subscriptions endpoint to accept URL and call SubscriptionService.AddSubscription()
-- [ ] T019 [US1] Return 201 Created response with Subscription object from POST endpoint (includes id, url, addedAt)
-- [ ] T020 [US1] Implement AddSubscriptionAsync() method in frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs
-- [ ] T021 [US1] Create Subscriptions.razor page in frontend/RSSFeedReader.UI/Pages/Subscriptions.razor with @page "/"
-- [ ] T022 [US1] Add input field and Add Subscription button in Subscriptions.razor markup
-- [ ] T023 [US1] Implement OnAddSubscription() handler in Subscriptions.razor to call API and update local list
-- [ ] T024 [US1] Clear input field after successful subscription addition in Subscriptions.razor
-- [ ] T025 [US1] Add error message display in Subscriptions.razor for failed additions
-- [ ] T026 [US1] Update frontend App.razor routing to include Subscriptions page
+- [x] T017 [US1] Create SubscriptionsController in backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs with POST endpoint
+- [x] T018 [US1] Implement POST /api/subscriptions endpoint to accept URL and call SubscriptionService.AddSubscription()
+- [x] T019 [US1] Return 201 Created response with Subscription object from POST endpoint (includes id, url, addedAt)
+- [x] T020 [US1] Implement AddSubscriptionAsync() method in frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs
+- [x] T021 [US1] Create Subscriptions.razor page in frontend/RSSFeedReader.UI/Pages/Subscriptions.razor with @page "/"
+- [x] T022 [US1] Add input field and Add Subscription button in Subscriptions.razor markup
+- [x] T023 [US1] Implement OnAddSubscription() handler in Subscriptions.razor to call API and update local list
+- [x] T024 [US1] Clear input field after successful subscription addition in Subscriptions.razor
+- [x] T025 [US1] Add error message display in Subscriptions.razor for failed additions
+- [x] T026 [US1] Update frontend App.razor routing to include Subscriptions page
 
 **Checkpoint**: User Story 1 should be fully functional — users can add subscriptions via the form
 
@@ -90,15 +90,15 @@ description: "Task list for RSS Feed Subscription Management (MVP) implementatio
 
 ### Implementation for User Story 2
 
-- [ ] T027 [US2] Implement GET /api/subscriptions endpoint in SubscriptionsController.cs that returns List<Subscription>
-- [ ] T028 [US2] Implement GetSubscriptionsAsync() method in frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs
-- [ ] T029 [US2] Load subscriptions on page initialization in Subscriptions.razor OnInitializedAsync()
-- [ ] T030 [US2] Add subscription list display in Subscriptions.razor showing all subscriptions with URL
-- [ ] T031 [US2] Create SubscriptionItem.razor component in frontend/RSSFeedReader.UI/Components/ to display individual subscription
-- [ ] T032 [US2] Update Subscriptions.razor to iterate over subscriptions and render SubscriptionItem for each
-- [ ] T033 [US2] Add empty state message in Subscriptions.razor when no subscriptions exist
-- [ ] T034 [US2] Add subscription count display in Subscriptions.razor (e.g., "Your Subscriptions (N total)")
-- [ ] T035 [US2] Ensure list updates immediately when new subscription is added (without page refresh)
+- [x] T027 [US2] Implement GET /api/subscriptions endpoint in SubscriptionsController.cs that returns List<Subscription>
+- [x] T028 [US2] Implement GetSubscriptionsAsync() method in frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs
+- [x] T029 [US2] Load subscriptions on page initialization in Subscriptions.razor OnInitializedAsync()
+- [x] T030 [US2] Add subscription list display in Subscriptions.razor showing all subscriptions with URL
+- [x] T031 [US2] Create SubscriptionItem.razor component in frontend/RSSFeedReader.UI/Components/ to display individual subscription
+- [x] T032 [US2] Update Subscriptions.razor to iterate over subscriptions and render SubscriptionItem for each
+- [x] T033 [US2] Add empty state message in Subscriptions.razor when no subscriptions exist
+- [x] T034 [US2] Add subscription count display in Subscriptions.razor (e.g., "Your Subscriptions (N total)")
+- [x] T035 [US2] Ensure list updates immediately when new subscription is added (without page refresh)
 
 **Checkpoint**: Both User Stories 1 and 2 complete — users can add and view subscriptions independently
 
@@ -108,16 +108,16 @@ description: "Task list for RSS Feed Subscription Management (MVP) implementatio
 
 **Purpose**: Final validation and documentation
 
-- [ ] T036 Verify backend project builds without errors (dotnet build backend/RSSFeedReader.Api/)
-- [ ] T037 Verify frontend project builds without errors (dotnet build frontend/RSSFeedReader.UI/)
-- [ ] T038 Verify solution builds without errors (dotnet build RSSFeedReader.sln)
-- [ ] T039 Run backend project and verify API responds on localhost:5151 (dotnet run in backend/)
-- [ ] T040 Run frontend project and verify UI loads on localhost:5213 (dotnet run in frontend/)
-- [ ] T041 Manually test User Story 1 (add subscription) via browser and Postman
-- [ ] T042 Manually test User Story 2 (display list) via browser
-- [ ] T043 Verify CORS configuration allows frontend requests to backend
-- [ ] T044 Validate subscription list renders without pagination for typical MVP usage (<50 items)
-- [ ] T045 Run quickstart.md validation steps to ensure local development setup works
+- [x] T036 Verify backend project builds without errors (dotnet build backend/RSSFeedReader.Api/)
+- [x] T037 Verify frontend project builds without errors (dotnet build frontend/RSSFeedReader.UI/)
+- [x] T038 Verify solution builds without errors (dotnet build RSSFeedReader.sln)
+- [x] T039 Run backend project and verify API responds on localhost:5151 (dotnet run in backend/)
+- [x] T040 Run frontend project and verify UI loads on localhost:5213 (dotnet run in frontend/)
+- [x] T041 Manually test User Story 1 (add subscription) via browser and Postman
+- [x] T042 Manually test User Story 2 (display list) via browser
+- [x] T043 Verify CORS configuration allows frontend requests to backend
+- [x] T044 Validate subscription list renders without pagination for typical MVP usage (<50 items)
+- [x] T045 Run quickstart.md validation steps to ensure local development setup works
 
 ---
 

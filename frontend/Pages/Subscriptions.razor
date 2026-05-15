@@ -1,0 +1,141 @@
+@page "/"
+@using RSSFeedReader.UI.Models
+@using RSSFeedReader.UI.Services
+@inject SubscriptionApiClient ApiClient
+@inject IJSRuntime JS
+
+<PageTitle>RSS Feed Reader</PageTitle>
+
+<div class="container">
+    <h1>Your RSS Subscriptions</h1>
+    
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>Add Feed Subscription</h2>
+        </div>
+        <div class="card-body">
+            <form @onsubmit="OnAddSubscription">
+                <div class="form-group">
+                    <label for="urlInput" class="form-label">Feed URL</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="urlInput" 
+                        @bind="newSubscriptionUrl" 
+                        placeholder="https://example.com/feed.xml"
+                        required />
+                </div>
+                <button type="submit" class="btn btn-primary" disabled="@isLoading">
+                    @if (isLoading)
+                    {
+                        <span>Adding...</span>
+                    }
+                    else
+                    {
+                        <span>Add Subscription</span>
+                    }
+                </button>
+            </form>
+            
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert alert-danger mt-3">
+                    @errorMessage
+                </div>
+            }
+            
+            @if (!string.IsNullOrEmpty(successMessage))
+            {
+                <div class="alert alert-success mt-3">
+                    @successMessage
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Your Subscriptions <span class="badge">@subscriptions.Count</span></h2>
+        </div>
+        <div class="card-body">
+            @if (subscriptions.Count == 0)
+            {
+                <div class="alert alert-info">
+                    No subscriptions yet. Add one to get started!
+                </div>
+            }
+            else
+            {
+                <ul class="list-group">
+                    @foreach (var subscription in subscriptions)
+                    {
+                        <li class="list-group-item">
+                            <div>
+                                <strong>@subscription.Url</strong>
+                            </div>
+                            <small class="text-muted">Added: @subscription.AddedAt.ToString("yyyy-MM-dd HH:mm:ss")</small>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Subscription> subscriptions = new();
+    private string newSubscriptionUrl = string.Empty;
+    private string errorMessage = string.Empty;
+    private string successMessage = string.Empty;
+    private bool isLoading = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSubscriptions();
+    }
+
+    private async Task OnAddSubscription()
+    {
+        errorMessage = string.Empty;
+        successMessage = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(newSubscriptionUrl))
+        {
+            errorMessage = "Please enter a valid URL";
+            return;
+        }
+
+        try
+        {
+            isLoading = true;
+            var subscription = await ApiClient.AddSubscriptionAsync(newSubscriptionUrl);
+            subscriptions.Add(subscription);
+            successMessage = "Subscription added successfully!";
+            newSubscriptionUrl = string.Empty;
+            
+            // Clear success message after 3 seconds
+            await Task.Delay(3000);
+            successMessage = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error adding subscription: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task LoadSubscriptions()
+    {
+        try
+        {
+            subscriptions = await ApiClient.GetSubscriptionsAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error loading subscriptions: {ex.Message}";
+        }
+    }
+}

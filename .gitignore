@@ -1,0 +1,71 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache/options
+.vs/
+
+# Visual Studio Code
+.vscode/
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# Build folders
+.build/
+out/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Entity Framework
+*.edmx.diagram
+
+# Local user-specific files
+.env
+.env.local
+appsettings.Development.json
+
+# Artifacts
+artifacts/
+dist/
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Package management
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+*.log
